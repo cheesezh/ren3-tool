@@ -26,10 +26,15 @@ if __name__ == "__main__":
         for i in range(0, len(lines), 2):
             try:
                 rank_value = int(lines[i].strip())
+                # 1-10，5；11-30，4，31-50，3，51-70，2，71以后1
                 if rank_value <= 10:
                     rank = "5"
                 elif rank_value <= 30:
+                    rank = "4"
+                elif rank_value <= 50:
                     rank = "3"
+                elif rank_value <= 70:
+                    rank = "2"
                 else:
                     rank = "1"
                 nick_name = lines[i+1].strip()

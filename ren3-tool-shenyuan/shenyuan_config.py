@@ -28,6 +28,8 @@ img = Image.open(FILE_NAME)
 # 心悦：1500
 SNAPSHOT_DEVICE_WIDTH = str(width)
 
+print("截图宽度为：{}".format(SNAPSHOT_DEVICE_WIDTH))
+
 CONFIG = {
     "1000": {
         "COVER_1_OFFSET" : 510,

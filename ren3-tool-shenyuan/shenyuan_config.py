@@ -11,8 +11,8 @@
 
 
 FILES = [
-    "1108shenyuan01.jpeg",  # 截图的名字, jpg／jpeg／png格式都可以
-    "1108shenyuan02.jpeg"
+    "120601.jpeg",  # 截图的名字, jpg／jpeg／png格式都可以
+    "120602.jpeg"
 ]
 
 #=========下边基本不需要配置==============

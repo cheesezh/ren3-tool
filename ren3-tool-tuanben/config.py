@@ -10,12 +10,12 @@
 """
 
 FILES = [  # 截图的名字, jpg／jpeg／png格式都可以
-    "1124hetun01.jpeg",
-    "1124hetun02.jpeg"
+    "1214hetun01.jpeg",
+    "1214hetun02.jpeg"
 ]
 
 # 小寒/心悦 截图，黑边是否在右边？
-BLACK_ON_RIGHT = True  # True or False
+BLACK_ON_RIGHT = False  # True or False
 
 
 #=========下边配置不需要更改==============

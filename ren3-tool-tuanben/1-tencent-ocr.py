@@ -59,9 +59,12 @@ def ocr_img(name):
     base64_data = base64.b64encode(image_data)
     params = get_params(base64_data)
     r = requests.post(url, data=params)
-    item_list = r.json()['data']['item_list']
-    res = [i['itemstring'] for i in item_list]
-    time.sleep(1)
+    try:
+        item_list = r.json()['data']['item_list']
+        res = [i['itemstring'] for i in item_list]
+    except:
+        res = []
+    time.sleep(2)
     return res
 
 print("准备自动识别...")

@@ -73,7 +73,7 @@ pic_list = []
 for i in os.listdir("tmp"):
     pic_list.append(i.replace(".jpg", ""))
 
-for pic in pic_list:
+for pic in sorted(pic_list):
     new_info = []
     while len(new_info) < 1:
         print("正在解析{}.jpg".format(pic))

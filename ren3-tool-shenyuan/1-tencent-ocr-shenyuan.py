@@ -53,7 +53,8 @@ def get_params(base64_data):
     return params
 
 def ocr_img(name):
-    url = "https://api.ai.qq.com/fcgi-bin/ocr/ocr_handwritingocr"
+    # url = "https://api.ai.qq.com/fcgi-bin/ocr/ocr_handwritingocr"
+    url = "https://api.ai.qq.com/fcgi-bin/ocr/ocr_generalocr"
     with open('tmp{}{}.jpg'.format(os.path.sep, name), 'rb') as fin:
         image_data = fin.read()
     base64_data = base64.b64encode(image_data)
@@ -73,7 +74,7 @@ pic_list = []
 for i in os.listdir("tmp"):
     pic_list.append(i.replace(".jpg", ""))
 
-for pic in pic_list:
+for pic in sorted(pic_list):
     new_info = []
     while len(new_info) < 1:
         print("正在解析{}.jpg".format(pic))

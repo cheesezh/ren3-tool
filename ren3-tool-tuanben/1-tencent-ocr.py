@@ -53,7 +53,8 @@ def get_params(base64_data):
     return params
 
 def ocr_img(name):
-    url = "https://api.ai.qq.com/fcgi-bin/ocr/ocr_handwritingocr"
+    # url = "https://api.ai.qq.com/fcgi-bin/ocr/ocr_handwritingocr"
+    url = "https://api.ai.qq.com/fcgi-bin/ocr/ocr_generalocr"
     with open('tmp{}{}.jpg'.format(os.path.sep, name), 'rb') as fin:
         image_data = fin.read()
     base64_data = base64.b64encode(image_data)

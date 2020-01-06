@@ -10,13 +10,9 @@
 """
 
 FILES = [  # 截图的名字, jpg／jpeg／png格式都可以
-    "1214hetun01.jpeg",
-    "1214hetun02.jpeg"
+    "12280201.jpeg",
+    "12280202.jpeg"
 ]
-
-# 小寒/心悦 截图，黑边是否在右边？
-BLACK_ON_RIGHT = False  # True or False
-
 
 #=========下边配置不需要更改==============
 
@@ -61,6 +57,19 @@ CONFIG = {
         "SCORE_OFFSET": -50
     }
 }
+
+
+# 小寒/心悦 截图，黑边是否在右边？
+BLACK_ON_RIGHT = True  # True or False
+
+if SNAPSHOT_DEVICE_WIDTH == "1500":
+    cond1 = img.getpixel((1468, 215)) == (0, 0, 0)
+    cond2 = img.getpixel((1468, 225)) == (0, 0, 0)
+    cond3 = img.getpixel((1468, 235)) == (0, 0, 0)
+    BLACK_ON_RIGHT = cond1 and cond2 and cond3
+    print("黑边在[{}]边。".format("右" if BLACK_ON_RIGHT else "左"))
+
+
 
 # 一些位置相关的配置，因为截图的手机不同，所以可能需要适当调整
 COVER_1_OFFSET = CONFIG[SNAPSHOT_DEVICE_WIDTH]["COVER_1_OFFSET"]  # 遮盖区1的偏移量，正数右移／负数左移

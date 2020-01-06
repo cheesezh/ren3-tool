@@ -11,9 +11,10 @@
 
 
 FILES = [
-    "120601.jpeg",  # 截图的名字, jpg／jpeg／png格式都可以
-    "120602.jpeg"
+    "1108shenyuan01.jpeg"  # 截图的名字, jpg／jpeg／png格式都可以
 ]
+
+
 
 #=========下边基本不需要配置==============
 
@@ -29,6 +30,17 @@ img = Image.open(FILE_NAME)
 SNAPSHOT_DEVICE_WIDTH = str(width)
 
 print("截图宽度为：{}".format(SNAPSHOT_DEVICE_WIDTH))
+
+# 小寒/心悦 截图，黑边是否在右边？
+BLACK_ON_RIGHT = True  # True or False
+
+if SNAPSHOT_DEVICE_WIDTH == "1500":
+    cond1 = img.getpixel((1468, 215)) == (0, 0, 0)
+    cond2 = img.getpixel((1468, 225)) == (0, 0, 0)
+    cond3 = img.getpixel((1468, 235)) == (0, 0, 0)
+    BLACK_ON_RIGHT = cond1 and cond2 and cond3
+    print("黑边在[{}]边。".format("右" if BLACK_ON_RIGHT else "左"))
+
 
 CONFIG = {
     "1000": {
@@ -75,6 +87,10 @@ COVER_3_START_TOP = CONFIG[SNAPSHOT_DEVICE_WIDTH]["COVER_3_START_TOP"]
 COVER_3_STEP = CONFIG[SNAPSHOT_DEVICE_WIDTH]["COVER_3_STEP"]
 SMALL_IMAGE_STEP = CONFIG[SNAPSHOT_DEVICE_WIDTH]["SMALL_IMAGE_STEP"]
 COVERED_PICTURE = 'picture_with_covered_area.jpg'  # 带遮盖区的图片名称
+
+if BLACK_ON_RIGHT and SNAPSHOT_DEVICE_WIDTH == "1500":
+    COVER_1_OFFSET = CONFIG[SNAPSHOT_DEVICE_WIDTH]["COVER_1_OFFSET"] - 52
+    RANK_OFFSET = CONFIG[SNAPSHOT_DEVICE_WIDTH]["RANK_OFFSET"] - 52
 
 # 固定配置，别修改
 ocr_app_id = "2123257550"
